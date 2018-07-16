@@ -3,17 +3,17 @@
 cur_dir=`pwd`
 
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
 
 apt-get install -y create_ap \
 	ntp ntpdate \
 	sshfs
 
 # python
-apt-get install python3 python3-pip
+apt-get install -y python3 python3-pip
 
 # ruby
-apt-get install ruby
+apt-get install -y ruby
 gem install bundler
 
 # netdata
@@ -23,18 +23,20 @@ cd netdata
 cd $cur_dir
 
 # camera
-apt-get install python3-picamera
+apt-get install -y python3-picamera
 
 # motion
-apt-get install motion
+apt-get install -y motion
 
 # streamer
-apt-get install cmake libjpeg8-dev
+apt-get install -y cmake libjpeg8-dev
 git clone https://github.com/jacksonliam/mjpg-streamer.git
-cd mjpeg-streamer/mjpg-streamer-experimental
+cd mjpg-streamer/mjpg-streamer-experimental
 make
 make install
 cd $cur_dir
 
 # butterfly
 pip3 install butterfly
+
+apt-get autoremove
